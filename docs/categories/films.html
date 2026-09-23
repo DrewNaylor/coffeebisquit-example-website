@@ -14,20 +14,22 @@
        HACK: we check to see if this page has "username-id" defined, which is only supposed
              to be on channel pages.
        TODO: figure out a less-hacky method to determine if we're on a channel page. --><!-- Begin Jekyll SEO tag v2.9.0 -->
-<title>coffeebisquit example website | This is an example website for coffeebisquit.</title>
+<title>Films | coffeebisquit example website</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="coffeebisquit example website" />
+<meta property="og:title" content="Films" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="This is an example website for coffeebisquit." />
 <meta name="twitter:description" property="og:description" content="This is an example website for coffeebisquit." />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
+<link rel="canonical" href="http://localhost:4000/categories/films.html" />
+<meta property="og:url" content="http://localhost:4000/categories/films.html" />
 <meta property="og:site_name" content="coffeebisquit example website" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-09-22T23:36:02-04:00" />
+<meta property="article:modified_time" content="2026-09-22T23:36:02-04:00" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="coffeebisquit example website" />
+<meta name="twitter:title" content="Films" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"This is an example website for coffeebisquit.","headline":"coffeebisquit example website","name":"coffeebisquit example website","url":"http://localhost:4000/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-22T23:36:02-04:00","datePublished":"2026-09-22T23:36:02-04:00","description":"This is an example website for coffeebisquit.","headline":"Films","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/categories/films.html"},"url":"http://localhost:4000/categories/films.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- We move the feed stuff here so that it's still available everywhere that's not a channel.
@@ -52,17 +54,30 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><h2 class="post-list-heading">Videos</h2>
-    
-    
-<ul class="post-list">
-    <!-- Hopefully this will allow the videos to be in a grid: https://www.w3schools.com/htmlcss/htmlcss_lists_tables.asp (see under
-         "Styling lists with CSS"; I modified the CSS there to be what I want) --><!-- This will show every video from every channel, and will also show the channel link on the video. -->
-    <!-- You have to pass variables from the page into the include thing for it to be available in the include:
-    https://jekyllrb.com/docs/includes/#passing-parameters-to-includes -->
-    
-      <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Films</h1>
+  </header>
+
+  <div class="post-content">
+    <!-- Category pages are set up as described for tag pages in https://stackoverflow.com/a/21002505 under CC BY-SA 3.0 for now,
+     where each category file has an entry under "_categories" that says it's of the "category-page" layout and
+     says the category and nothing else. -->
+
+<!-- Allow stuff to be written on the category page, if desired. -->
+
+
+<div class="video-list-div">
+  <ul class="post-list"><!-- Use the filename to reduce the amount of stuff needed to be defined. -->
       
+      
+        <!-- I copied stuff from the channel page to here so that it was easier to have the videos list. -->
+        <!-- I'd also like to have it so that only "video-list.html" is included here and all the if and end if and end for and for stuff here and the same stuff on the homepage
+            is in the include file to reduce copying, but that's kinda complicated right now. -->
+        
+        <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+        
     
     <li>
     
@@ -101,56 +116,17 @@
            so we might as well add this to every video. -->
       <br><!-- Video length is shown next to the date. --><span class="post-meta">0:11 &bull; Sep 5, 2026</span></li>
     
-<!-- This will show every video from every channel, and will also show the channel link on the video. -->
-    <!-- You have to pass variables from the page into the include thing for it to be available in the include:
-    https://jekyllrb.com/docs/includes/#passing-parameters-to-includes -->
-    
-      <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
-      
-    
-    <li>
-    
-    <div class="video-link-title">
-        <a title="How to Install and Configure DSpellCheck in Notepad++ (Hunspell works again, see desc.)" class="video-link" href="/video/2026/07/04/configuring-dspellcheck.html">
-        How to Install and Configure DSpellCheck in Notepad++ (Hunspell works again, see desc.)
-        </a>
-    </div>
-        
-    <div class="video-thumbnail-in-homepage-list">
-        <!-- This will show a thumbnail for the video, along with alt text. -->
-        <!-- Lazy-loading: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Lazy_loading#images_iframes_videos_and_audio -->
-        <a class="video-link-thumbnail" href="/video/2026/07/04/configuring-dspellcheck.html">
-        <img loading="lazy" title="DSpellCheck configuration window on top of NotepadPlusPlus window on Windows 10" alt="DSpellCheck configuration window on top of NotepadPlusPlus window on Windows 10" width="250px" height="140px" src="/storage/thumbnails/dspellcheck-thumbnail.png" />
-        </a>
-    </div>
-    
-    <!-- You have to pass variables from the page into the include thing for it to be available in the include:
-    https://jekyllrb.com/docs/includes/#passing-parameters-to-includes --><!-- If a channel is specified in the video, we can link to it here. -->
-        <!-- I removed the .html at the end because now each channel is organized by folder. -->
-        <!-- TODO: Figure out why some videos that aren't the first or last in the list can have their thumbnails smaller when
-             resizing the window. -->
-        <!-- Channel avatars are now shown here. TODO: Change the thing to get channel avatars so that they get the format specified in a channel's "data.md" file
-             rather than just hardcoding ".png" or ".jpeg". -->
 
-        <!-- Use Jekyll's data stuff to get channel info directly from a file:
-        https://jekyllrb.com/docs/datafiles/#example-accessing-a-specific-author -->
-        
-
-        <span class="post-meta">
-          <a href="/channels/drewnaylor"><img alt="My beautiful long-hair calico cat Mitty being cute and looking intently toward off to the bottom-right side of the camera when I was playing with her. She looks like she's about to get up to be closer to the camera" title="My beautiful long-hair calico cat Mitty being cute and looking intently toward off to the bottom-right side of the camera when I was playing with her. She looks like she's about to get up to be closer to the camera" loading="lazy" class="channel-avatar-in-video-list" width="20px" height="20px" src="/channels/drewnaylor/drewnaylor.jpg" /></a>
-          <a href="/channels/drewnaylor">
-            Drew Naylor
-          </a>
-        </span><!-- If there's no channel on this video, we still have to insert a blank line to line up all the videos on the page
-           so we might as well add this to every video. -->
-      <br><!-- Video length is shown next to the date. --><span class="post-meta">1:00 &bull; Jul 4, 2026</span></li>
-    
-<!-- This will show every video from every channel, and will also show the channel link on the video. -->
-    <!-- You have to pass variables from the page into the include thing for it to be available in the include:
-    https://jekyllrb.com/docs/includes/#passing-parameters-to-includes -->
-    
-      <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+      <!-- Use the filename to reduce the amount of stuff needed to be defined. -->
+      <!-- Use the filename to reduce the amount of stuff needed to be defined. -->
       
+      
+        <!-- I copied stuff from the channel page to here so that it was easier to have the videos list. -->
+        <!-- I'd also like to have it so that only "video-list.html" is included here and all the if and end if and end for and for stuff here and the same stuff on the homepage
+            is in the include file to reduce copying, but that's kinda complicated right now. -->
+        
+        <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+        
     
     <li>
     
@@ -189,17 +165,25 @@
            so we might as well add this to every video. -->
       <br><!-- Video length is shown next to the date. --><span class="post-meta">0:11 &bull; Jun 23, 2026</span></li>
     
-<!-- This will show every video from every channel, and will also show the channel link on the video. -->
-    <!-- You have to pass variables from the page into the include thing for it to be available in the include:
-    https://jekyllrb.com/docs/includes/#passing-parameters-to-includes -->
-    
-      <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
-      <!-- This will show every video from every channel, and will also show the channel link on the video. -->
-    <!-- You have to pass variables from the page into the include thing for it to be available in the include:
-    https://jekyllrb.com/docs/includes/#passing-parameters-to-includes -->
-    
-      <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+
+      <!-- Use the filename to reduce the amount of stuff needed to be defined. -->
       
+      
+        <!-- I copied stuff from the channel page to here so that it was easier to have the videos list. -->
+        <!-- I'd also like to have it so that only "video-list.html" is included here and all the if and end if and end for and for stuff here and the same stuff on the homepage
+            is in the include file to reduce copying, but that's kinda complicated right now. -->
+        
+        <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+        
+      <!-- Use the filename to reduce the amount of stuff needed to be defined. -->
+      
+      
+        <!-- I copied stuff from the channel page to here so that it was easier to have the videos list. -->
+        <!-- I'd also like to have it so that only "video-list.html" is included here and all the if and end if and end for and for stuff here and the same stuff on the homepage
+            is in the include file to reduce copying, but that's kinda complicated right now. -->
+        
+        <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+        
     
     <li>
     
@@ -238,9 +222,15 @@
            so we might as well add this to every video. -->
       <br><!-- Video length is shown next to the date. --><span class="post-meta">0:11 &bull; Jun 13, 2026</span></li>
     
-</ul>
 
-    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p></div>
+      </ul>
+</div>
+
+<!-- TODO: switch to jekyll-archive for tags and categories; this plugin will need to be forked to add support for "video-category":
+           https://stackoverflow.com/a/48357942 under CC BY-SA 3.0 -->
+  </div>
+
+</article>
 
       </div>
     </main><footer class="site-footer h-card" id="site-footer">

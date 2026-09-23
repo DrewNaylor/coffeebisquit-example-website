@@ -1,0 +1,1 @@
+This is the categories folder. It's used for the "video-category" property on each video, like "films" for example.

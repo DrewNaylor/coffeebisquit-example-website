@@ -1,0 +1,28 @@
+drewnaylor:
+    channel-name: "Drew Naylor"
+    channel-link: "drewnaylor"
+    gts-username: "drewnaylor"
+    avatar-alt-text: "My beautiful long-hair calico cat Mitty being cute and looking intently toward off to the bottom-right side of the camera when I was playing with her. She looks like she's about to get up to be closer to the camera"
+    banner-alt-text: "My beautiful long-hair calico cat Mitty laying down in the clean clothes pile with her eyes wide open looking toward the camera but off to the left side. I added a blur effect behind the image so it looks cooler."
+    avatar-filename: "drewnaylor.jpg"
+    banner-filename: "drewnaylor.png"
+    enabled-channel-tabs:
+      - Videos
+      - Playlists
+      - Discussion
+      - About
+
+# NOTE regarding enabled channel tabs: This allows
+#      channels to have custom tabs that aren't hardcoded.
+#      By default, there are "Videos", "Playlists", "Posts",
+#      "Discussion", and "About" channel page layouts that can
+#      be used for each page respectively, and each tab can be
+#      named whatever you want, you just have to ensure the markdown
+#      or HTML file for that page will match the slugified version
+#      of the item in the list above based on this criteria under "slugify":
+#      https://jekyllrb.com/docs/liquid/filters/
+#      To be safe, you might want to stick to ASCII alphanumeric characters.
+#      Ideally this should specify the HTML filename separately from the tab name.
+#      Also, any custom channel tabs can be created with the
+#      "channel-page" layout.
+#      "Home" is always shown and it uses "index.html" as its filename.

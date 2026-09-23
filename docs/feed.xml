@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- NOTE: This RSS feed file was copied from my website, which uses the Slim Pickins theme. -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>coffeebisquit example website</title>
+        <description>This is an example website for coffeebisquit.</description>
+        <link>http://localhost:4000</link>
+        <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+        
+            <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+            
+            <item>
+                <title>Big Buck Bunny HLS test</title>
+
+                <!-- Use Jekyll's data stuff to get channel info directly from a file:
+                        https://jekyllrb.com/docs/datafiles/#example-accessing-a-specific-author
+                        The way we have this is it will show the channel name, the page on the channel, and the website's title. -->
+                
+
+                <dc:creator>
+                
+                        <!-- We will just put the channel name directly. -->
+                            Drew Naylor
+                 <!-- End if statement first checking if the post has an author value. --> </dc:creator>
+                
+                <!-- The full video description is shown here rather than an excerpt. -->
+                <description>
+                    
+                    &lt;p&gt;Big Buck Bunny in HLS&lt;/p&gt;
+&lt;p&gt;I used this command to create the files from the 1080p .mov file after trimming it down in LosslessCut:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ffmpeg -i &quot;./big_buck_bunny_1080p_h264-11seconds.mov&quot; -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 -c:v libx264 -crf 22 -c:a aac -ar 44100  -filter:v:0 scale=w=640:h=360  -maxrate:v:0 300k -b:a:0 100k  -filter:v:1 scale=w=854:h=480  -maxrate:v:1 600k -b:a:1 200k  -filter:v:2 scale=w=1280:h=720 -maxrate:v:2 1500k -b:a:2 500k  -filter:v:3 scale=w=1920:h=1080 -maxrate:v:3 3500k -b:a:3 1000k  -var_stream_map &quot;v:0,a:0,name:360p v:1,a:1,name:480p v:2,a:2,name:720p v:3,a:3,name:1080p&quot;  -preset fast -hls_list_size 10 -threads 0 -f hls  -hls_time 3 -hls_flags single_file -hls_playlist_type vod -hls_segment_type fmp4  -master_pl_name &quot;livestream.m3u8&quot; &quot;livestream-%v.m3u8&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This command is a combination of these SO answers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/a/71985380&quot;&gt;https://stackoverflow.com/a/71985380&lt;/a&gt; under CC BY-SA 4.0&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/a/45434032&quot;&gt;https://stackoverflow.com/a/45434032&lt;/a&gt; under CC BY-SA 3.0&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/a/50296230&quot;&gt;https://stackoverflow.com/a/50296230&lt;/a&gt; under CC BY-SA 4.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note that I had to add a fourth copy of &lt;code&gt;-map 0:v:0 -map 0:a:0&lt;/code&gt; for the 1080p version. Using this command to transcode videos will require modification for each video according to resolution, aspect ratio, and frame rate.&lt;/p&gt;
+&lt;p&gt;For some reason, seeking the video a lot gives this in the Jekyll logs but I think it&apos;s fine:&lt;/p&gt;
+&lt;div class=&quot;language-log highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code data-lang=&quot;log&quot;&gt;[2026-09-05 02:50:38] ERROR Errno::ECONNRESET: Connection reset by peer @ io_fillbuf - fd:6 
+        /home/pneuma/.local/share/gem/ruby/3.4.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:82:in &apos;IO#eof?&apos;
+        /home/pneuma/.local/share/gem/ruby/3.4.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:82:in &apos;WEBrick::HTTPServer#run&apos;
+        /home/pneuma/.local/share/gem/ruby/3.4.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in &apos;block in WEBrick::GenericServer#start_thread&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+                </description>
+                <!-- Add a video thumbnail if one exists for this post.
+                Note that thumbnails might not exist if it's a text-only post, for example.
+                Info on this and what I basically copied from: https://stackoverflow.com/a/45870352 under CC BY-SA 4.0
+                I don't know if this actually works since it doesn't show up in Akregator.
+                Actually this requires CDATA stuff.
+                
+                <media:content xmlns:media="http://search.yahoo.com/mrss/"
+                url="http://localhost:4000/storage/thumbnails/big-buck-bunny-thumbnail.png"
+                medium="image"
+                type="image/jpeg"
+                width="250"
+                height="250" />
+                -->
+                <pubDate>Sat, 05 Sep 2026 02:25:54 -0400</pubDate>
+                <link>http://localhost:4000/video/2026/09/05/big-buck-bunny-hls-test.html</link>
+                <guid isPermaLink="true">http://localhost:4000/video/2026/09/05/big-buck-bunny-hls-test.html</guid>
+            </item>
+            
+        
+            <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+            
+            <item>
+                <title>How to Install and Configure DSpellCheck in Notepad++ (Hunspell works again, see desc.)</title>
+
+                <!-- Use Jekyll's data stuff to get channel info directly from a file:
+                        https://jekyllrb.com/docs/datafiles/#example-accessing-a-specific-author
+                        The way we have this is it will show the channel name, the page on the channel, and the website's title. -->
+                
+
+                <dc:creator>
+                
+                        <!-- We will just put the channel name directly. -->
+                            Drew Naylor
+                 <!-- End if statement first checking if the post has an author value. --> </dc:creator>
+                
+                <!-- The full video description is shown here rather than an excerpt. -->
+                <description>
+                    
+                    &lt;p&gt;Testing a video that&apos;s in HLS.&lt;/p&gt;
+&lt;p&gt;Something I noticed is that with PeerTube&apos;s subtitle files, they load from the server under the &amp;quot;lazy-static&amp;quot; folder instead of a local path so you would
+have to download and modify each video&apos;s subtitle files to point to a local copy of the subtitle file. However, I have changed my code to not use those m3u8 subtitle files but I might go back to that with HLS.js when I change my resolution-changing code to tell HLS.js to switch the quality level directly instead of me changing which m3u8 file is loaded. I&apos;ll still have to keep the version that loads caption files directly for non-HLS videos, though.&lt;/p&gt;
+&lt;p&gt;0:00 Beginning&lt;br&gt;
+0:15 Random thing&lt;br&gt;
+0:23 Another thing&lt;br&gt;
+1:00 Ending&lt;br&gt;
+10:00:00 Testing hours only&lt;br&gt;
+10:43:12 Hour test&lt;br&gt;&lt;/p&gt;
+
+                </description>
+                <!-- Add a video thumbnail if one exists for this post.
+                Note that thumbnails might not exist if it's a text-only post, for example.
+                Info on this and what I basically copied from: https://stackoverflow.com/a/45870352 under CC BY-SA 4.0
+                I don't know if this actually works since it doesn't show up in Akregator.
+                Actually this requires CDATA stuff.
+                
+                <media:content xmlns:media="http://search.yahoo.com/mrss/"
+                url="http://localhost:4000/storage/thumbnails/dspellcheck-thumbnail.png"
+                medium="image"
+                type="image/jpeg"
+                width="250"
+                height="250" />
+                -->
+                <pubDate>Sat, 04 Jul 2026 10:30:54 -0400</pubDate>
+                <link>http://localhost:4000/video/2026/07/04/configuring-dspellcheck.html</link>
+                <guid isPermaLink="true">http://localhost:4000/video/2026/07/04/configuring-dspellcheck.html</guid>
+            </item>
+            
+        
+            <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+            
+            <item>
+                <title>Big Buck Bunny (newer test)</title>
+
+                <!-- Use Jekyll's data stuff to get channel info directly from a file:
+                        https://jekyllrb.com/docs/datafiles/#example-accessing-a-specific-author
+                        The way we have this is it will show the channel name, the page on the channel, and the website's title. -->
+                
+
+                <dc:creator>
+                
+                    <!-- If there is an author specified on the post, put in the author. -->
+                    Video creator: Blender; Page author: Drew Naylor 
+                    
+                        <!-- If the post has an author and a channel link value,
+                            get the channel name from the channels.yml file. -->
+                        (Channel: Drew Naylor)
+                     <!-- End if statement for checking if the page has a channel link. -->
+                    
+                 <!-- End if statement first checking if the post has an author value. --> </dc:creator>
+                
+                <!-- The full video description is shown here rather than an excerpt. -->
+                <description>
+                    
+                    &lt;p&gt;The same as the other Big Buck Bunny video on my channel, except this will be newer and sorted first in the regular sort and last when reversed.&lt;/p&gt;
+
+                </description>
+                <!-- Add a video thumbnail if one exists for this post.
+                Note that thumbnails might not exist if it's a text-only post, for example.
+                Info on this and what I basically copied from: https://stackoverflow.com/a/45870352 under CC BY-SA 4.0
+                I don't know if this actually works since it doesn't show up in Akregator.
+                Actually this requires CDATA stuff.
+                
+                <media:content xmlns:media="http://search.yahoo.com/mrss/"
+                url="http://localhost:4000/storage/thumbnails/big-buck-bunny-thumbnail.png"
+                medium="image"
+                type="image/jpeg"
+                width="250"
+                height="250" />
+                -->
+                <pubDate>Tue, 23 Jun 2026 04:11:54 -0400</pubDate>
+                <link>http://localhost:4000/video/2026/06/23/big-buck-bunny-newer-test.html</link>
+                <guid isPermaLink="true">http://localhost:4000/video/2026/06/23/big-buck-bunny-newer-test.html</guid>
+            </item>
+            
+        
+            <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+            
+        
+            <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
+            
+            <item>
+                <title>Big Buck Bunny example video page with a lot more text and I&apos;m typing way more here to see what it does</title>
+
+                <!-- Use Jekyll's data stuff to get channel info directly from a file:
+                        https://jekyllrb.com/docs/datafiles/#example-accessing-a-specific-author
+                        The way we have this is it will show the channel name, the page on the channel, and the website's title. -->
+                
+
+                <dc:creator>
+                
+                    <!-- If there is an author specified on the post, put in the author. -->
+                    Video creator: Blender; Page author: Drew Naylor 
+                    
+                        <!-- If the post has an author and a channel link value,
+                            get the channel name from the channels.yml file. -->
+                        (Channel: Drew Naylor)
+                     <!-- End if statement for checking if the page has a channel link. -->
+                    
+                 <!-- End if statement first checking if the post has an author value. --> </dc:creator>
+                
+                <!-- The full video description is shown here rather than an excerpt. -->
+                <description>
+                    
+                        <!-- Content warning block stuff. -->
+                        <p>Content warning: Testing a content warning.</p>
+                    
+                    &lt;p&gt;This page is an example of a video watch page using Big Buck Bunny. If you don&apos;t have the video file, you can get it here and put it in &lt;code&gt;(coffeebisquit template root)/storage/video-storage/big-buck-bunny&lt;/code&gt;; note that I used the &lt;code&gt;big_buck_bunny_480p_h264.mov&lt;/code&gt; file since it&apos;s smaller than the others but still has good quality: &lt;a href=&quot;http://download.blender.org/peach/bigbuckbunny_movies/&quot; target=_blank&gt;Big Buck Bunny download&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After the download, I trimmed it down with LosslessCut.&lt;/p&gt;
+&lt;p&gt;The Big Buck Bunny screenshot I&apos;m using as a thumbnail is under CC-BY 3.0 since it&apos;s part of the video. You can use the license link below to go to Blender&apos;s page that talks about the video and stuff.&lt;/p&gt;
+
+                </description>
+                <!-- Add a video thumbnail if one exists for this post.
+                Note that thumbnails might not exist if it's a text-only post, for example.
+                Info on this and what I basically copied from: https://stackoverflow.com/a/45870352 under CC BY-SA 4.0
+                I don't know if this actually works since it doesn't show up in Akregator.
+                Actually this requires CDATA stuff.
+                
+                <media:content xmlns:media="http://search.yahoo.com/mrss/"
+                url="http://localhost:4000/storage/thumbnails/big-buck-bunny-thumbnail.png"
+                medium="image"
+                type="image/jpeg"
+                width="250"
+                height="250" />
+                -->
+                <pubDate>Sat, 13 Jun 2026 05:10:54 -0400</pubDate>
+                <link>http://localhost:4000/video/2026/06/13/big-buck-bunny-test.html</link>
+                <guid isPermaLink="true">http://localhost:4000/video/2026/06/13/big-buck-bunny-test.html</guid>
+            </item>
+            
+        
+    </channel>
+</rss>

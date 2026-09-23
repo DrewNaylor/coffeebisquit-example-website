@@ -1,0 +1,51 @@
+
+
+[
+  
+    
+      {
+        "tags"     : "bunny, animals",
+        "title"    : "Big Buck Bunny HLS test",
+        "excerpt"  : "Big Buck Bunny in HLS\n",
+        "url"      : "/video/2026/09/05/big-buck-bunny-hls-test.html",
+        "date"     : "Sep 5, 2026",
+        "content"  : "Big Buck Bunny in HLS\nI used this command to create the files from the 1080p .mov file after trimming it down in LosslessCut:\nffmpeg -i \"./big_buck_bunny_1080p_h264-11seconds.mov\" -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 -c:v libx264 -crf 22 -c:a aac -ar 44100  -filter:v:0 scale=w=640:h=360  -maxrate:v:0 300k -b:a:0 100k  -filter:v:1 scale=w=854:h=480  -maxrate:v:1 600k -b:a:1 200k  -filter:v:2 scale=w=1280:h=720 -maxrate:v:2 1500k -b:a:2 500k  -filter:v:3 scale=w=1920:h=1080 -maxrate:v:3 3500k -b:a:3 1000k  -var_stream_map \"v:0,a:0,name:360p v:1,a:1,name:480p v:2,a:2,name:720p v:3,a:3,name:1080p\"  -preset fast -hls_list_size 10 -threads 0 -f hls  -hls_time 3 -hls_flags single_file -hls_playlist_type vod -hls_segment_type fmp4  -master_pl_name \"livestream.m3u8\" \"livestream-%v.m3u8\"\n\nThis command is a combination of these SO answers:\n\nhttps://stackoverflow.com/a/71985380 under CC BY-SA 4.0\nhttps://stackoverflow.com/a/45434032 under CC BY-SA 3.0\nhttps://stackoverflow.com/a/50296230 under CC BY-SA 4.0\n\nNote that I had to add a fourth copy of -map 0:v:0 -map 0:a:0 for the 1080p version. Using this command to transcode videos will require modification for each video according to resolution, aspect ratio, and frame rate.\nFor some reason, seeking the video a lot gives this in the Jekyll logs but I think it's fine:\n[2026-09-05 02:50:38] ERROR Errno::ECONNRESET: Connection reset by peer @ io_fillbuf - fd:6 \n        /home/pneuma/.local/share/gem/ruby/3.4.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:82:in 'IO#eof?'\n        /home/pneuma/.local/share/gem/ruby/3.4.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:82:in 'WEBrick::HTTPServer#run'\n        /home/pneuma/.local/share/gem/ruby/3.4.0/gems/webrick-1.9.2/lib/webrick/server.rb:309:in 'block in WEBrick::GenericServer#start_thread'\n\n"
+      } ,
+    
+  
+    
+      {
+        "tags"     : "notepadplusplus, notepad++, dspellcheck, spell checking, windows, computers",
+        "title"    : "How to Install and Configure DSpellCheck in Notepad++ (Hunspell works again, see desc.)",
+        "excerpt"  : "Testing a video that's in HLS.\n",
+        "url"      : "/video/2026/07/04/configuring-dspellcheck.html",
+        "date"     : "Jul 4, 2026",
+        "content"  : "Testing a video that's in HLS.\nSomething I noticed is that with PeerTube's subtitle files, they load from the server under the &quot;lazy-static&quot; folder instead of a local path so you would\nhave to download and modify each video's subtitle files to point to a local copy of the subtitle file. However, I have changed my code to not use those m3u8 subtitle files but I might go back to that with HLS.js when I change my resolution-changing code to tell HLS.js to switch the quality level directly instead of me changing which m3u8 file is loaded. I'll still have to keep the version that loads caption files directly for non-HLS videos, though.\n0:00 Beginning\n0:15 Random thing\n0:23 Another thing\n1:00 Ending\n10:00:00 Testing hours only\n10:43:12 Hour test\n"
+      } ,
+    
+  
+    
+      {
+        "tags"     : "short film, example",
+        "title"    : "Big Buck Bunny (newer test)",
+        "excerpt"  : "The same as the other Big Buck Bunny video on my channel, except this will be newer and sorted first in the regular sort and last when reversed.\n",
+        "url"      : "/video/2026/06/23/big-buck-bunny-newer-test.html",
+        "date"     : "Jun 23, 2026",
+        "content"  : "The same as the other Big Buck Bunny video on my channel, except this will be newer and sorted first in the regular sort and last when reversed.\n"
+      } ,
+    
+  
+    
+  
+    
+      {
+        "tags"     : "short film, example",
+        "title"    : "Big Buck Bunny example video page with a lot more text and I'm typing way more here to see what it does",
+        "excerpt"  : "This page is an example of a video watch page using Big Buck Bunny. If you don't have the video file, you can get it here and put it in (coffeebisquit template root)/storage/video-storage/big-buck-bunny; note that I used the big_buck_bunny_480p_h264.mov file since it's smaller than the others but still has good quality: Big Buck Bunny download.\n",
+        "url"      : "/video/2026/06/13/big-buck-bunny-test.html",
+        "date"     : "Jun 13, 2026",
+        "content"  : "This page is an example of a video watch page using Big Buck Bunny. If you don't have the video file, you can get it here and put it in (coffeebisquit template root)/storage/video-storage/big-buck-bunny; note that I used the big_buck_bunny_480p_h264.mov file since it's smaller than the others but still has good quality: Big Buck Bunny download.\nAfter the download, I trimmed it down with LosslessCut.\nThe Big Buck Bunny screenshot I'm using as a thumbnail is under CC-BY 3.0 since it's part of the video. You can use the license link below to go to Blender's page that talks about the video and stuff.\n"
+      } 
+    
+  
+]

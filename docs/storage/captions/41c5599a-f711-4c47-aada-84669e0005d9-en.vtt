@@ -1,0 +1,38 @@
+WEBVTT
+
+00:00.000 --> 00:04.700
+Hello everybody, this is DrewNailer. Today I'm going to show you how to install and configure
+
+00:04.700 --> 00:11.140
+DSpellCheck in Notepad++. So if you haven't already, go ahead and open up Notepad++ and
+
+00:11.140 --> 00:16.500
+we're going to go to Plugins, Admin, search for DSpellCheck, check the box next to it,
+
+00:16.600 --> 00:21.440
+click install, click yes, and then type in your password and then click yes. It'll
+
+00:21.440 --> 00:26.240
+install it. And now, as you can see, it's installed. If we try to type something,
+
+00:27.440 --> 00:31.560
+it doesn't put the little squiggly line under it. So we need to go to Plugins,
+
+00:32.820 --> 00:37.720
+DSpellCheck, Settings, change the library from Hunspell to Native Windows, and then
+
+00:37.720 --> 00:41.800
+click OK. And even before I clicked OK, you can see that it changed it right there.
+
+00:41.920 --> 00:47.920
+The reason why you would want to do this is Notepad++ seems to not have DSpellCheck
+
+00:47.920 --> 00:54.040
+anymore. So I'm using version 7.9.2. I hope this video helped and please
+
+00:54.040 --> 00:58.380
+let me know if you need any help with this in the comments below. Thank you for
+
+00:58.380 --> 00:59.240
+watching and goodbye.
+

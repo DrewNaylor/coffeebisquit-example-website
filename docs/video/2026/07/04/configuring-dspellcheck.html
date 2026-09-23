@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <!-- Disable the automatic title thing if we're on a channel page so we handle it ourselves:
+       https://jekyll.github.io/jekyll-seo-tag/advanced-usage/
+       HACK: we check to see if this page has "username-id" defined, which is only supposed
+             to be on channel pages.
+       TODO: figure out a less-hacky method to determine if we're on a channel page. --><!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>How to Install and Configure DSpellCheck in Notepad++ (Hunspell works again, see desc.) | coffeebisquit example website</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="How to Install and Configure DSpellCheck in Notepad++ (Hunspell works again, see desc.)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Testing a video that&#39;s in HLS." />
+<meta name="twitter:description" property="og:description" content="Testing a video that&#39;s in HLS." />
+<link rel="canonical" href="http://localhost:4000/video/2026/07/04/configuring-dspellcheck.html" />
+<meta property="og:url" content="http://localhost:4000/video/2026/07/04/configuring-dspellcheck.html" />
+<meta property="og:site_name" content="coffeebisquit example website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-07-04T10:30:54-04:00" />
+<meta property="article:modified_time" content="2026-07-04T10:30:54-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="How to Install and Configure DSpellCheck in Notepad++ (Hunspell works again, see desc.)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-04T10:30:54-04:00","datePublished":"2026-07-04T10:30:54-04:00","description":"Testing a video that&#39;s in HLS.","headline":"How to Install and Configure DSpellCheck in Notepad++ (Hunspell works again, see desc.)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/video/2026/07/04/configuring-dspellcheck.html"},"url":"http://localhost:4000/video/2026/07/04/configuring-dspellcheck.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- We move the feed stuff here so that it's still available everywhere that's not a channel.
+         This used to use the Jekyll feed plugin's "feed_meta" thing but we don't need it. I copied this from the output of that in the resulting page and just modified it. -->
+      <link type="application/atom+xml" rel="alternate" href="/feed.xml" title="coffeebisquit example website" /><link rel="stylesheet" href="/assets/main.css"> 
+  <!-- Showing thumbnail previews in link previews on social media: -->
+  <meta property="og:image" content="http://localhost:4000/storage/thumbnails/dspellcheck-thumbnail.png">
+  <!-- I pretty much copied that from here Minimal Mistakes at 
+  https://github.com/mmistakes/minimal-mistakes/blob/4364fb73f58391645b0297061ae4b2e0e96493f5/_includes/seo.html , so
+  here's the repo's license as of that commit:
+  The MIT License (MIT)
+
+Copyright (c) 2013-2020 Michael Rose and contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+      (license ended)
+      You may also be interested in this link I found that says stuff about
+      link previews: https://fedi.tips/how-do-i-get-a-link-preview-to-appear-in-my-post-on-mastodon/ -->
+  
+</head>
+<body><header class="site-header" id="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">coffeebisquit example website</a><nav class="site-nav">
+        <input aria-label="mobile navigation menu toggle" type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <title>Navigation menu toggle icon</title>
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><!-- Make sure we only show pages that are meant to be in the header. --><a class="page-link" href="/about/">About</a><!-- Make sure we only show pages that are meant to be in the header. --><a class="page-link" href="/categories.html">Categories</a><!-- Make sure we only show pages that are meant to be in the header. --><a class="page-link" href="/search/">Search</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <!-- NOTE: This page's content was copied and modified from the default Jekyll theme's layout file "post.html". I had to split "post.html" into two files (one
+for "video-metadata-on-watch-page.html" and one for the overall video watch page) 
+so that it's easier to manage this stuff. -->
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+	
+	
+	<div class="post-content e-content" itemprop="articleBody">
+
+<!-- NOTE: This page's content is based on the MDN info here: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video -->
+
+<!-- This SO question under CC BY-SA 3.0 made me think that I could probably use percentages, and they seem to work: https://stackoverflow.com/q/19796799 -->
+
+<!-- TODO: Improve this video player element so that it can get different resolutions. This will likely require JS, but in case a browser has JS turned off, I'd like to serve a
+lower-resolution version of the video, like 480p or something, then also have the rest of the video quality links in the video-info-block section as an unordered list inside a list item.
+Would like to have the plain list like that anyway so I don't need to do a dropdown for it. But then the issue is if I use HLS for playback, I'd have to have a way to get the video corrected
+on-demand like PeerTube does if someone downloads it.
+
+When multiple resolutions are supported, the video source will have to go in the "video src=''" instead of a "source src=''" element since I guess you can't really change the source
+with JS otherwise. -->
+
+<!-- Lazy-loading: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Lazy_loading#images_iframes_videos_and_audio -->
+
+<!-- I set the video default width to 55% because that's about the width of the video player command bar below it in Firefox on my laptop.
+     It's not ideal but it's ok for now.
+     TODO: Figure out how to get the command bar to be the width of the video even when not using "float right" in theater mode and
+           set the default video width to 60%. -->
+<div class="video-player-container">
+<video loading="lazy" id="video-player-control" class="video-player" controls width="55%" poster="/storage/thumbnails/dspellcheck-thumbnail.png">
+  <source src="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/9d261c66-147d-4acf-aa95-4a2280dc8249-master.m3u8" type="video/mp4" />
+  <!-- Fake track item to be replaced later with replaceChild. -->
+  <!-- Loop through every caption to do what we need to do.
+     Copying from the caption downloads.
+     BUG/FIXME: this doesn't work with multiple captions
+                after you change the resolution from auto even though
+                it seems like it would. Maybe the captions need to be
+                in a JSON thing and then have the JS loop through it. -->
+    
+      <track id="enTrack" kind="captions" src="/storage/captions/41c5599a-f711-4c47-aada-84669e0005d9-en.vtt" srclang="en" label="en">
+    
+  <!-- Add a link to the video if the browser doesn't support the "video" element: https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player -->
+  Your browser doesn't support the "video" element. You'll find the direct video links below the description for each resolution.
+</video>
+
+<!-- This "loading video" label will only be shown if we're using HLS.js since that takes a lot longer.
+     Actually it just doesn't show up for some reason, I don't know why. Maybe I need to wrap the HLS.js thing
+     inside of another script that shows and hides the "video loading" text.
+     TODO: put the showing and hiding of the video loading item in a wrapper, maybe it will be something where showing it
+           is importable in the block so it's imported before HLS.js is.
+     There's also a loading label for the playlist sidebar. -->
+<span class="loading-label" id="loading-video-item"><p>Loading video, this may take a bit, please wait...</p></span>
+<span class="loading-label" id="loading-playlist-sidebar-item"><p>Loading playlist sidebar, this may take a bit, please wait...</p></span>
+
+
+
+<form class="video-player-command-bar">
+  <!-- Basing this video player command bar off what I did in thumbsget4web. -->
+  <!-- Note that for the defaults, I plan to have a way to set and load cookies on a settings page
+       that will let the user choose their own defaults for "up to" a resolution value (if there isn't 1080p for a 720p-max video,
+       for example, the player will pick 720p instead) and stuff. -->
+       
+  <noscript>
+    <div class="noscript">
+      <p>JavaScript is required to use the coffeebisquit video player command bar, which includes toggles for video loop and theater mode, and
+      dropdowns for resolution and video speed, sorry.</p>
+    </div>
+  </noscript>
+       
+  <input class="input-checkbox" type="checkbox" id="checkbox-loop-video"><label class="checkbox-label" for="checkbox-loop-video">Loop video</label>
+  <input class="input-checkbox" type="checkbox" id="checkbox-theater-mode"><label class="checkbox-label" for="checkbox-theater-mode">Theater mode</label>
+  
+  <!-- Load the coffeebisquit video player command bar JavaScript code.
+       I had to have it defer this too because otherwise it would make the HTML take longer to download over (simulated) GPRS with no cache. -->
+  <script src="/assets/js/coffeebisquit/video-player-command-bar.js" defer type="text/javascript"></script>
+  
+  <!-- Dropdown stuff: https://www.w3schools.com/tags/tag_select.asp
+       This has to be in its own span so it will be on the right side of the video player
+       when in theater mode. -->
+  <span class="video-player-command-bar-items-float-right-section">
+    
+    <!-- Resolution selector: -->
+    <!-- Based on this SO answer for the Jekyll array thing: https://stackoverflow.com/a/46960601 under CC BY-SA 3.0 -->
+    <label class="combobox-label" for="combobox-resolution">Resolution:</label>
+    <!-- NOTE: You have to pass the video data to the JS function from the HTML, as Jekyll didn't include it in the JS file itself.
+         Maybe it would if I used the "---" thing at the top but that's ok. You also have to add single quotes around the Jekyll stuff or it won't work. -->
+    <select class="input-combobox" type="combobox" id="combobox-resolution" onchange="videoResolutionChange(this.value, '9d261c66-147d-4acf-aa95-4a2280dc8249-master', 'e70b5e51-6981-42fc-8f62-b7701ea70dd7', '');">
+      <option value="auto">Auto (default)</option>
+      
+        <!-- We have to do "resolution[1].file" to get the file for each resolution
+             because otherwise it will get the whole thing if we do it with just "[1]"
+             and it will mess up the HTML, and if we do "[0].file", it won't have access
+             to the "file" thing. -->
+        <option value="07633162-6da6-4fe9-85f6-772ef55d1cfe-1080">1080p30</option>
+      
+        <!-- We have to do "resolution[1].file" to get the file for each resolution
+             because otherwise it will get the whole thing if we do it with just "[1]"
+             and it will mess up the HTML, and if we do "[0].file", it won't have access
+             to the "file" thing. -->
+        <option value="b7475aba-c450-4633-a6bf-1679cedb20f8-720">720p30</option>
+      
+        <!-- We have to do "resolution[1].file" to get the file for each resolution
+             because otherwise it will get the whole thing if we do it with just "[1]"
+             and it will mess up the HTML, and if we do "[0].file", it won't have access
+             to the "file" thing. -->
+        <option value="1217cb20-676c-4960-ade3-204e198bda1b-480">480p30</option>
+      
+        <!-- We have to do "resolution[1].file" to get the file for each resolution
+             because otherwise it will get the whole thing if we do it with just "[1]"
+             and it will mess up the HTML, and if we do "[0].file", it won't have access
+             to the "file" thing. -->
+        <option value="f68cd949-206c-4682-ac88-bd1801a0c5f7-360">360p30</option>
+      
+    </select>
+
+    <!-- Speed selector: -->
+    <label class="combobox-label" for="combobox-speed">Speed:</label>
+    <select class="input-combobox" type="combobox" id="combobox-speed" onchange="videoSpeedChange(this.value);">
+      <!-- These values are based on what PeerTube has. -->
+      <option value="0.25">25%</option>
+      <option value="0.50">50%</option>
+      <option value="0.75">75%</option>
+      <!-- "selected" is what makes it default to a thing when the page loads:
+           https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/option#selected -->
+      <option value="1" selected="true">100% (default)</option>
+      <option value="1.25">125%</option>
+      <option value="1.50">150%</option>
+      <option value="1.75">175%</option>
+      <option value="2">200%</option>
+      <option value="2.25">225%</option>
+      <option value="2.50">250%</option>
+      <option value="2.75">275%</option>
+      <option value="3">300%</option>
+    </select>
+    
+  </span>
+</form>
+</div>
+
+<!-- The playlist sidebar is below the video command bar to not be too in the way.
+     TODO: Put this next to the video element when in desktop mode and not in theater mode
+           so it's up there. This may or may not require using JS to move it around.
+           I tried some stuff with CSS and JS but nothing worked correctly on both desktop and mobile screen sizes. -->
+<div id="playlist-sidebar-div" class="playlist-iframe-sidebar-container">
+    <!-- We have to use a name, not an ID for JS access.
+         This gave me the idea: https://stackoverflow.com/q/23711448 under CC BY-SA 3.0 -->
+    <iframe id="playlist-sidebar" name="playlist-sidebar" title="Playlist sidebar" height="350" class="playlist-iframe-sidebar" src="" onload="jumpToVideoAndInjectStyling()"></iframe>
+</div>
+
+
+
+<!-- Copying and modifying stuff from the hls.js readme for using hls.js: https://github.com/video-dev/hls.js/#embedding-hlsjs
+     Hls.js is only going to be added to pages that have videos in hls format. -->
+
+<script defer type="module">
+  // Import the HLS.js script here so that we can load the video async so things are faster on slow connections;
+  // it's not perfect but it makes everything else besides the video way faster to load:
+  // https://stackoverflow.com/a/56375268 under CC BY-SA 4.0
+  import "/assets/js/hls.js/hls.min.js";
+
+  var video = document.getElementById('video-player-control');
+  var videoSrc = '/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/9d261c66-147d-4acf-aa95-4a2280dc8249-master.m3u8';
+  if (Hls.isSupported()) {
+    // We have to tell it to not render text tracks natively.
+    // Who knows what "natively" means, is it natively as in Firefox or
+    // natively as in HLS.js? I don't know but this combined with the video.addEventListener thing
+    // below, it works.
+    var hls = new Hls({ 
+      renderTextTracksNatively: false  
+    });
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+  }
+  // HLS.js is not supported on platforms that do not have Media Source
+  // Extensions (MSE) enabled.
+  //
+  // When the browser has built-in HLS support (check using `canPlayType`),
+  // we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video
+  // element through the `src` property. This is using the built-in support
+  // of the plain video element, without using HLS.js.
+  else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = videoSrc;
+  }
+  
+  video.addEventListener("loadeddata", () => {
+    // Loop through every caption to do what we need to do.
+    // Copying from the caption downloads.
+    // BUG/FIXME: this doesn't work with multiple captions even though
+    //            it seems like it would. Maybe the captions need to be
+    //            in a JSON thing and then have the JS loop through it.
+    
+    // TODO: use item numbers for the caption tracks instead of using the
+    //       caption ID in the list of captions.
+    
+
+        // Got this working with a combination of these issues:
+        // https://github.com/video-dev/hls.js/issues/5736
+        // https://github.com/video-dev/hls.js/issues/4705
+        // https://github.com/video-dev/hls.js/issues/5607
+        // and:
+        // https://stackoverflow.com/a/22966637 for replaceChild under CC BY-SA 4.0
+        // Delete the old track before creating a new one:
+        var enoldTrack = document.getElementById("enTrack");
+        
+        // Now create the new one:
+        const entrackEl = document.createElement("track");
+        entrackEl.setAttribute("kind", "captions");
+        // 41c5599a-f711-4c47-aada-84669e0005d9-en.vtt is the vtt file for this language.
+        entrackEl.setAttribute("src", "/storage/captions/41c5599a-f711-4c47-aada-84669e0005d9-en.vtt");
+        // caption[0] is the language code.
+        entrackEl.setAttribute("srcLang", "en");
+        // TODO: put the ActivityPub outbox language name in the video manifest files.
+        entrackEl.setAttribute("label", "en");
+        entrackEl.setAttribute("id",  "enTrack");
+        video.replaceChild(entrackEl, enoldTrack);
+        entrackEl.track.mode = "hidden"; // Enable the track with "hidden", or "showing" if using native captions display.
+    
+  });
+</script>
+
+<noscript>
+<div class="noscript">
+<p>JavaScript is required to use HLS.js for HLS playback, sorry. Some versions of iOS and some Android browsers support HLS natively but I would need to manually put in a non-JS
+version of the player but that would only support one resolution. I think what should be done is to have the video player and the HLS.js stuff separate
+so the video player can be included in the noscript section or something, I don't know. In the "Downloads" section, there's a list of the resolutions of the video that you can download and watch in VLC or other players that can handle
+fragmented MP4 files, along with an <code>ffmpeg</code> command to defragment them if you need to.</p>
+</div>
+</noscript>
+</div>  
+<!-- NOTE: This page's content was copied and modified from the default Jekyll theme's layout file "post.html" -->
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">How to Install and Configure DSpellCheck in Notepad++ (Hunspell works again, see desc.)</h1>
+    <p class="post-meta"><!-- I removed the .html at the end because now each channel is organized by folder. -->
+      <!-- This shows the channel profile picture, too.
+           TODO: Add alt text for the channel avatar.
+           TODO 2: Change the thing to get channel avatars so that they get the format specified in a channel's "data.md" file
+             rather than just hardcoding ".png" or ".jpeg".
+           NOTE: The link to the channel page is duplicated between the channel name text and the profile picture
+                 to avoid the underscore between them. I don't know how to not have that otherwise. -->
+                 
+      <!-- Use Jekyll's data stuff to get channel info directly from a file:
+        https://jekyllrb.com/docs/datafiles/#example-accessing-a-specific-author
+        The way we have this is it will show the channel name, the page on the channel, and the website's title. -->
+      
+      
+      <!-- Lazy-loading: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Lazy_loading#images_iframes_videos_and_audio -->
+      <span class="post-meta">
+        <a href="/channels/drewnaylor"><img alt="My beautiful long-hair calico cat Mitty being cute and looking intently toward off to the bottom-right side of the camera when I was playing with her. She looks like she's about to get up to be closer to the camera" title="My beautiful long-hair calico cat Mitty being cute and looking intently toward off to the bottom-right side of the camera when I was playing with her. She looks like she's about to get up to be closer to the camera" loading="lazy" class="channel-avatar-on-video-watch-page" width="25px" height="25px" src="/channels/drewnaylor/drewnaylor.jpg" /></a>
+        <a href="/channels/drewnaylor">Drew Naylor</a>
+        &nbsp;|&nbsp;<!-- Subscribe links; only RSS for now, but I want to add a link that will allow following this channel on a GTS instance. -->
+        <span class="channel-subscribe-block">Subscribe: <a href="/channels/drewnaylor/feed.xml">via RSS</a> &bull; <a href="/@drewnaylor">via ActivityPub</a> (copy the link into your instance's search bar and choose "open link in Mastodon" or similar)</span>
+      </span>
+      <br>Jul 4, 2026
+      </time>
+  </header>
+  
+  <div id="description" class="post-content e-content" itemprop="articleBody">
+    <p>Testing a video that's in HLS.</p>
+<p>Something I noticed is that with PeerTube's subtitle files, they load from the server under the &quot;lazy-static&quot; folder instead of a local path so you would
+have to download and modify each video's subtitle files to point to a local copy of the subtitle file. However, I have changed my code to not use those m3u8 subtitle files but I might go back to that with HLS.js when I change my resolution-changing code to tell HLS.js to switch the quality level directly instead of me changing which m3u8 file is loaded. I'll still have to keep the version that loads caption files directly for non-HLS videos, though.</p>
+<p>0:00 Beginning<br>
+0:15 Random thing<br>
+0:23 Another thing<br>
+1:00 Ending<br>
+10:00:00 Testing hours only<br>
+10:43:12 Hour test<br></p>
+
+  </div>
+  
+  <script defer type="text/javascript">
+    // TODO: Move everything here that can be moved into a JS file
+    // so that it takes up less space in the HTML.
+  
+    // Load it when the window is done loading:
+    // https://stackoverflow.com/a/807895 under CC BY-SA 4.0
+    // Actually, window.onload make it only do stuff once it seems.
+    window.onload = function(){
+      timestampConversion();
+      loadPlaylist();
+      setVideoToTimestamp();
+    }
+    
+    // Turn the timestamps into links:
+    // https://stackoverflow.com/a/56925610 under CC BY-SA 4.0
+    function timestampConversion()
+    {
+      // Get the HTML from the description.
+      var descriptionItem = document.getElementById("description");
+      var descriptionText = descriptionItem.innerHTML;
+      
+      // Figure out if there are multiple address parameters and if there are,
+      // append the time differently.
+      const addressParameters = new URLSearchParams(document.location.search);
+      // The default new anchor tag is here in case the address parameter check fails,
+      // like on a browser that doesn't support URLSearchParams stuff.
+      var newAnchorTag = '<a href="?t=$&" data-time="$&" class="timestamp-link">$&</a>'
+      // This requires checking the "size" value of the address parameters:
+      // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/size
+      console.log(addressParameters.size)
+      // Remove existing "t=" parameters from the link:
+      // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/delete
+      addressParameters.delete("t")
+      
+      if (addressParameters.size > 0)
+      {
+        // Now we set the new link taking into account the existing non-"t=" parameters.
+        newAnchorTag = '<a href="?' + addressParameters + '&t=$&" data-time="$&" class="timestamp-link">$&</a>'
+      }
+      
+      // console.log(descriptionText);
+      
+      // I put the replacement thing here instead of having a separate function.
+      // This only works if the quotes to be removed from the regex thing
+      // and the carat has to be removed from the beginning,
+      // so instead of this: "/^[0-5]?\d(?::[0-5]?\d){1,2}/gm"
+      // it has to be this: /[0-5]?\d(?::[0-5]?\d){1,2}/gm
+      // Actually, /\d\d?:\d\d?(:\d\d?)?/gm works for hours, too. Got it from:
+      // https://stackoverflow.com/a/67730813 under CC BY-SA 4.0
+      descriptionText = descriptionText.replace(/\d\d?:\d\d?(:\d\d?)?/gm, newAnchorTag);
+      
+      // console.log(descriptionText);
+      descriptionItem.innerHTML = descriptionText;
+    }
+    
+    // Trying to use this for playlist stuff:
+    // https://stackoverflow.com/a/217833 under CC BY-SA 4.0      
+    function loadPlaylist()
+    {
+      // Figure out if we should show the sidebar at all:
+      // First we check if there's a "playlist=" thing in the address,
+      // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/has
+      // then we get the value of "playlist=".
+      // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/get
+      const addressParameters = new URLSearchParams(document.location.search);
+      if (addressParameters.has("playlist"))
+      {
+        // Show the sidebar loading text.
+        const loadingPlaylistSidebarItem = document.getElementById("loading-playlist-sidebar-item");
+        // This is a span so we use "inline".
+        // https://stackoverflow.com/a/9456338 under CC BY-SA 3.0
+        loadingPlaylistSidebarItem.style.display = "inline";
+        
+        // Set playlist sidebar iframe source:
+        const playlistSidebar = document.getElementById("playlist-sidebar");
+        // Inject the playlist based on the value in the address bar.
+        // This value is set in each playlist's "slug" property.
+        playlistSidebar.src = "/playlists/" + addressParameters.get("playlist") + ".html";
+      
+        // Output the playlist ID
+        console.log(addressParameters.get("playlist"));
+        
+        // Show the playlist sidebar:
+        // https://stackoverflow.com/a/9456338 under CC BY-SA 3.0
+        const playlistSidebarDiv = document.getElementById("playlist-sidebar-div");
+        playlistSidebarDiv.style.display = "block";
+      }
+    }
+    
+    function jumpToVideoAndInjectStyling()
+    {
+      // NOTE: We have to do this separately from the code that loads the iframe's SRC value otherwise
+      // things don't work at all and we can't access items in the iframe from JS.
+      // Some code is duplicated as a result.
+      
+      // Access the iframe to get the jumpAnchor and hide stuff on the page:
+      // https://stackoverflow.com/a/1088569 under CC BY-SA 4.0
+      // Set playlist sidebar iframe source:
+      const playlistSidebar = document.getElementById("playlist-sidebar");
+      const playlistSidebarIframeDocument = playlistSidebar.contentDocument || playlistSidebar.contentWindow.document;
+      
+      // We have to hide stuff with JS because hiding it with CSS causes
+      // weird stuff where the CSS loads, unloads, and loads again.
+      // That messes with the video scrolling thing, too.
+      // Unfortunately, I had to also add IDs to each of these as using "getElementsByClassName" doesn't
+      // work for this.
+      // TODO: reduce the amount of empty space at the top and bottom of the playlist video list in the sidebar iframe.
+      // TODO 2: Add the "loop" and "shuffle" playlist buttons to the sidebar. These should probably be shown on the playlist
+      // details page too just below the channel link so they can be used there, too.
+      console.log("testing: " + playlistSidebarIframeDocument.body.toString());
+      const playlistSidebarSiteHeader = playlistSidebarIframeDocument.getElementById("site-header");
+      console.log("This should show the sidebar site header: " + playlistSidebarSiteHeader);
+      playlistSidebarSiteHeader.style.display = "none";
+      const playlistSidebarSiteFooter = playlistSidebarIframeDocument.getElementById("site-footer");
+      playlistSidebarSiteFooter.style.display = "none";
+      const playlistSidebarPlaylistDescription = playlistSidebarIframeDocument.getElementById("playlist-description");
+      playlistSidebarPlaylistDescription.style.display = "none";
+      const playlistSidebarVideoList = playlistSidebarIframeDocument.getElementById("video-list-in-playlist-contents-page");
+      playlistSidebarVideoList.style.marginTop = "12px";
+      
+      // Scroll to the correct item in the list:
+      // https://stackoverflow.com/a/3169950 under CC BY-SA 3.0
+      const addressParameters = new URLSearchParams(document.location.search);
+      const jumpAnchor = playlistSidebarIframeDocument.getElementById("playlistitem-" + addressParameters.get("index"));
+      console.log(jumpAnchor);
+      jumpAnchor.scrollIntoView();
+      
+      // Scroll back up to the top of the page:
+      // TODO: Save and restore scroll position instead of setting the scrolling to the top of the page
+      //       in case someone is on a slow connection and they scrolled the page before it was ready.
+      // TODO: Ideally, scroll only the iframe.
+      const topOfPage = document.getElementById("site-header");
+      topOfPage.scrollIntoView();
+      
+      // Hide the playlist sidebar loading thing.
+      const loadingPlaylistSidebarItem = document.getElementById("loading-playlist-sidebar-item");
+      loadingPlaylistSidebarItem.style.display = "none";
+    }
+    
+    // Get the timestamp from the address bar and put the video there, if there's a "t=" thing in there.
+    function setVideoToTimestamp()
+    {
+      // Get the address parameters.
+      const addressParameters = new URLSearchParams(document.location.search);
+      if (addressParameters.has("t"))
+      {
+        let videoTimestamp = addressParameters.get("t");
+        let videoPlayer = document.getElementById("video-player-control");
+        // console.log(videoTimestamp * 60)
+        // Convert the timestamp to seconds:
+        // https://stackoverflow.com/a/8907823 under CC BY-SA 3.0
+        videoPlayer.currentTime = convert(videoTimestamp);
+        console.log("New time: " + convert(videoTimestamp));
+      }
+    }
+        
+    function convert(input) {
+      // Convert the timestamp to seconds:
+      // https://stackoverflow.com/a/8907823 under CC BY-SA 3.0
+      // Converting the timestamp to seconds continues in the if statement.
+      var parts = input.split(':');
+      console.log("Length of the parts: " + parts.length);
+      
+      // Figure out if there are 1 or 2 colons in the time so
+      // we know if we need to treat this as hours, minutes, and seconds,
+      // or just minutes and seconds.
+      // See: https://stackoverflow.com/a/881111 under CC BY-SA 4.0
+      //      where we get the length after splitting (since we're using
+      //      an array below anyway and it's faster to use it, it should
+      //      be more efficient than wastefully using Regex).
+      if (parts.length == 2) {
+        minutes = +parts[0];
+        seconds = +parts[1];
+        return (minutes * 60 + seconds).toFixed(3);
+      } else {
+        hours = +parts[0];
+        minutes = +parts[1];
+        seconds = +parts[2];
+        // Hours have to be multiplied by 3600 to become seconds
+        // according to https://duckduckgo.com/?q=convert+hour+to+seconds&ia=web
+        // and 10:43:12 converts to 38592.000 as verified by
+        // https://www.calculatorsoup.com/calculators/time/time-to-decimal-calculator.php?hours=10&minutes=43&seconds=12&action=solve
+        return ((hours * 3600) + (minutes * 60) + seconds).toFixed(3);
+      }
+    }
+  </script>
+  
+  <noscript>
+    <div class="noscript">
+      <p>JavaScript is required for the playlist sidebar and turning timestamps into links, sorry.</p>
+    </div>
+  </noscript>
+  
+  <details><summary>Video details</summary>
+    <!-- I wrapped the video details in a details element because it's really long.
+         TODO: figure out if this is a reasonable organization of the items here or if
+               they need to be different. They're mostly inspired by PeerTube but I didn't
+               put them in the same order. -->
+    <div class="video-info" itemprop="video-info-block">
+    <ul><!-- Check if there's an original publish date on the video, in case it differs from
+                                                when it was published here. --><li>Original publish date: Jan 6, 2021<!-- Check if there's a license on the video. -->
+        <li>License:&nbsp;CC-BY-NC-SA <!-- Video license name. --><!-- End checking if there's a license specified on the video. --><!-- Check if there's a category on the video. -->
+        <li>Category: <a href="/categories/tech.html">tech</a> <!-- Link to the page showing all videos with this category. --><!-- End checking if there's a category specified on the video. --><!-- Check if there's tags on the video. -->
+        <li>Tags: 
+          <!-- Tag loop list with links courtesy of the minimaJake theme under the MIT License
+          (same as the coffeebisquit repo's version but without my copyright):
+          https://github.com/JakeSteam/minimaJake/blob/99071684c7a4c85418af8db112509eb3388670fc/_includes/custom/tags.html -->
+          
+            <a class="tag" href="/search/?q=notepadplusplus">notepadplusplus</a>, 
+          
+            <a class="tag" href="/search/?q=notepad%2B%2B">notepad++</a>, 
+          
+            <a class="tag" href="/search/?q=dspellcheck">dspellcheck</a>, 
+          
+            <a class="tag" href="/search/?q=spell+checking">spell checking</a>, 
+          
+            <a class="tag" href="/search/?q=windows">windows</a>, 
+          
+            <a class="tag" href="/search/?q=computers">computers</a>
+          
+          <!-- <a href="/tags/notepadplusplusnotepad++dspellcheckspell checkingwindowscomputers.html"> --> <!--notepadplusplusnotepad++dspellcheckspell checkingwindowscomputers--> <!-- </a> --> <!-- TODO: figure out how to link to a list of videos with given tags. This might need JS but I'd prefer that it doesn't since that requires more resources. --><!-- End checking if there's tags specified on the video. --><!-- Check if there's privacy set on the video. -->
+        <li>Privacy: public<!-- End checking if there's privacy set on the video. --><!-- Check if there's alt text on the thumbnail. -->
+        <li>Thumbnail alt text: DSpellCheck configuration window on top of NotepadPlusPlus window on Windows 10<!-- End checking if there's alt text specified on the thumbnail. --><!-- Check if there's length set on the video. -->
+        <li>Length: 1:00<!-- End checking if there's length set on the video. --><!-- Check if there's a primary language set on the video. -->
+        <li>Primary language: English<!-- End checking if there's a primary language set on the video. -->
+    </ul>
+  </div>
+</details>
+
+<details><summary>Downloads</summary>
+  <div class="video-info">
+    <p>Video files:</p>
+      <ul class="video-resolution-list">
+        
+          <p>Note: this video is a fragmented MP4 so it might not play correctly unless you defragment it with ffmpeg.
+          This command described at <a href="https://superuser.com/a/1530949" target=_blank>https://superuser.com/a/1530949</a>
+ under CC BY-SA 4.0 should work:<br>
+          <code>ffmpeg -i fragmented.mp4 -c copy -map 0 regular.mp4</code></p>
+        
+          <p>Note: for now the torrents include everything in one. I want to have each torrent be one resolution but <code>transmission-create</code> can only do one file <i><b>or</b></i> folder.</p>
+        <!-- Previously I was using "page.video-id" for the torrent filename, but this doesn't work if you have multiple videos with the same "videoroot" but different "video-id", as
+             is the case with the Big Buck Bunny example videos. -->
+        <li><a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/e70b5e51-6981-42fc-8f62-b7701ea70dd7.torrent" download="e70b5e51-6981-42fc-8f62-b7701ea70dd7.torrent">Torrent</a></li>
+        
+          <li>1080p30
+            <ul>
+            <!-- We have an indented list for the direct download and the torrent file. -->
+              <!-- We have to do "resolution[1].file" to get the file for each resolution
+                  because otherwise it will get the whole thing if we do it with just "[1]"
+                  and it will mess up the HTML, and if we do "[0].file", it won't have access
+                  to the "file" thing.
+                  TODO: Add m3u8 and thumbnail downloads; and when they exist, torrent downloads.
+                  TODO 2: figure out if the download links are fully accessible in telling screen readers what the
+                          downloads are (meaning, if more context needs to be added to the "a" tags or if the list items
+                          just give that automatically). -->
+              <li>
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/07633162-6da6-4fe9-85f6-772ef55d1cfe-1080-fragmented.mp4">Video file</a>
+              </li>
+              <li>
+                <!-- Maybe the filename should have some part of the video name, I'm not sure.
+                     Got the download thing from here:
+                     https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#download -->
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/07633162-6da6-4fe9-85f6-772ef55d1cfe-1080-fragmented.mp4" download="07633162-6da6-4fe9-85f6-772ef55d1cfe-1080-fragmented.mp4">Direct download</a>
+              </li>
+<!--              <li>
+                <!-- TODO: Add torrent files to the folders.
+                           Might not keep them next to the video files but that's to be decided later.
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/07633162-6da6-4fe9-85f6-772ef55d1cfe-1080-fragmented.mp4.torrent" download="07633162-6da6-4fe9-85f6-772ef55d1cfe-1080-fragmented.mp4.torrent">Torrent</a>
+              </li>-->
+            </ul>
+          </li>
+        
+          <li>720p30
+            <ul>
+            <!-- We have an indented list for the direct download and the torrent file. -->
+              <!-- We have to do "resolution[1].file" to get the file for each resolution
+                  because otherwise it will get the whole thing if we do it with just "[1]"
+                  and it will mess up the HTML, and if we do "[0].file", it won't have access
+                  to the "file" thing.
+                  TODO: Add m3u8 and thumbnail downloads; and when they exist, torrent downloads.
+                  TODO 2: figure out if the download links are fully accessible in telling screen readers what the
+                          downloads are (meaning, if more context needs to be added to the "a" tags or if the list items
+                          just give that automatically). -->
+              <li>
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/b7475aba-c450-4633-a6bf-1679cedb20f8-720-fragmented.mp4">Video file</a>
+              </li>
+              <li>
+                <!-- Maybe the filename should have some part of the video name, I'm not sure.
+                     Got the download thing from here:
+                     https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#download -->
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/b7475aba-c450-4633-a6bf-1679cedb20f8-720-fragmented.mp4" download="b7475aba-c450-4633-a6bf-1679cedb20f8-720-fragmented.mp4">Direct download</a>
+              </li>
+<!--              <li>
+                <!-- TODO: Add torrent files to the folders.
+                           Might not keep them next to the video files but that's to be decided later.
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/b7475aba-c450-4633-a6bf-1679cedb20f8-720-fragmented.mp4.torrent" download="b7475aba-c450-4633-a6bf-1679cedb20f8-720-fragmented.mp4.torrent">Torrent</a>
+              </li>-->
+            </ul>
+          </li>
+        
+          <li>480p30
+            <ul>
+            <!-- We have an indented list for the direct download and the torrent file. -->
+              <!-- We have to do "resolution[1].file" to get the file for each resolution
+                  because otherwise it will get the whole thing if we do it with just "[1]"
+                  and it will mess up the HTML, and if we do "[0].file", it won't have access
+                  to the "file" thing.
+                  TODO: Add m3u8 and thumbnail downloads; and when they exist, torrent downloads.
+                  TODO 2: figure out if the download links are fully accessible in telling screen readers what the
+                          downloads are (meaning, if more context needs to be added to the "a" tags or if the list items
+                          just give that automatically). -->
+              <li>
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/1217cb20-676c-4960-ade3-204e198bda1b-480-fragmented.mp4">Video file</a>
+              </li>
+              <li>
+                <!-- Maybe the filename should have some part of the video name, I'm not sure.
+                     Got the download thing from here:
+                     https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#download -->
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/1217cb20-676c-4960-ade3-204e198bda1b-480-fragmented.mp4" download="1217cb20-676c-4960-ade3-204e198bda1b-480-fragmented.mp4">Direct download</a>
+              </li>
+<!--              <li>
+                <!-- TODO: Add torrent files to the folders.
+                           Might not keep them next to the video files but that's to be decided later.
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/1217cb20-676c-4960-ade3-204e198bda1b-480-fragmented.mp4.torrent" download="1217cb20-676c-4960-ade3-204e198bda1b-480-fragmented.mp4.torrent">Torrent</a>
+              </li>-->
+            </ul>
+          </li>
+        
+          <li>360p30
+            <ul>
+            <!-- We have an indented list for the direct download and the torrent file. -->
+              <!-- We have to do "resolution[1].file" to get the file for each resolution
+                  because otherwise it will get the whole thing if we do it with just "[1]"
+                  and it will mess up the HTML, and if we do "[0].file", it won't have access
+                  to the "file" thing.
+                  TODO: Add m3u8 and thumbnail downloads; and when they exist, torrent downloads.
+                  TODO 2: figure out if the download links are fully accessible in telling screen readers what the
+                          downloads are (meaning, if more context needs to be added to the "a" tags or if the list items
+                          just give that automatically). -->
+              <li>
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/f68cd949-206c-4682-ac88-bd1801a0c5f7-360-fragmented.mp4">Video file</a>
+              </li>
+              <li>
+                <!-- Maybe the filename should have some part of the video name, I'm not sure.
+                     Got the download thing from here:
+                     https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#download -->
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/f68cd949-206c-4682-ac88-bd1801a0c5f7-360-fragmented.mp4" download="f68cd949-206c-4682-ac88-bd1801a0c5f7-360-fragmented.mp4">Direct download</a>
+              </li>
+<!--              <li>
+                <!-- TODO: Add torrent files to the folders.
+                           Might not keep them next to the video files but that's to be decided later.
+                <a href="/storage/video-storage/e70b5e51-6981-42fc-8f62-b7701ea70dd7/f68cd949-206c-4682-ac88-bd1801a0c5f7-360-fragmented.mp4.torrent" download="f68cd949-206c-4682-ac88-bd1801a0c5f7-360-fragmented.mp4.torrent">Torrent</a>
+              </li>-->
+            </ul>
+          </li>
+        
+      </ul>
+    
+    <p>Captions:</p>
+        <ul class="caption-list">
+          
+            <li>en
+              <ul>
+              <!-- We have an indented list for the file link and the direct download. -->
+                <!-- We have to do "caption[1].file" to get the file for each caption
+                    because otherwise it will get the whole thing if we do it with just "[1]"
+                    and it will mess up the HTML, and if we do "[0].file", it won't have access
+                    to the "file" thing.
+                    TODO: Auto-add captions to video elements on pages that have non-HLS videos
+                          and load captions when changing resolutions on HLS videos since the captions
+                          are only specified for the auto resolution, or if possible, use the caption stuff
+                          from the file used for the auto resolution even when we aren't using the auto resolution
+                          to reduce the amount of work that I need to do. -->
+                <li>
+                  <a href="/storage/captions/41c5599a-f711-4c47-aada-84669e0005d9-en.vtt">Caption link</a>
+                </li>
+                <li>
+                  <!-- Got the download thing from here:
+                      https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#download -->
+                  <a href="/storage/captions/41c5599a-f711-4c47-aada-84669e0005d9-en.vtt" download="41c5599a-f711-4c47-aada-84669e0005d9-en.vtt">Direct download</a>
+                </li>
+              </ul>
+            </li>
+          
+        </ul>
+    </div>
+  </details>
+  
+<details>
+  <summary>Expand for comments</summary>
+  <!-- TODO: have a site-wide config thing that allows comments to be turned off entirely. -->
+     <div class="video-comments">
+          <p>Comments disabled on this website.</p>
+     </div>
+
+
+<!-- This file is for GoToSocial comments. Only the replies to the post associated with a given video will be displayed in this area, and likes and boosts on the post will be shown under the video player.
+Comment count on the post will be shown next to the "Comments" header. --></details>
+<!-- NOTE: This file will be for the video title, description, tags, channel name and profile picture, view count, federated post favorite and boost count, and other stuff that doesn't go in the video player area, comments area, related videos sidebar, or anything else. -->
+  <a class="u-url" href="/video/2026/07/04/configuring-dspellcheck.html" hidden></a>
+</article>
+
+
+<!-- I think the category for videos should be "video" so that all of them can be at "example.com/video/date-and-name-thing.html".
+
+HTML video element stuff:
+
+- Mozilla has stuff on using HTML video elements and JS for this: 
+	- https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video
+	- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio
+	- https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Audio_and_video_delivery/cross_browser_video_player
+	- https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Audio_and_video_delivery/buffering_seeking_time_ranges
+	- https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Audio_and_video_delivery/Video_player_styling_basics
+- I think I'll default to like 480p if no JS is enabled so it's not too high of resolution if someone wants to watch it on the page without JS, then provide links to the other resolutions under the description around where the tags and stuff are.
+- Unfortunately, if I want to allow no JS for watching videos, it may be difficult or impossible to provide HLS and WebSocket (or whatever) streaming like PeerTube without wasting a lot of space.
+
+Playlist ideas for how to show them on video watch pages:
+
+- Maybe each playlist can show up as "?playlist=playlistName" at the end of the video page URL and somehow have the playlist show up on the side in a way that uses the video's index to know which video is selected at the moment but have links to the rest of the videos.
+	- May need to use JS to show the playlists on the video pages to not have multiple duplicate video pages. Perhaps if the "?playlist=playlistName" thing is in the address, the playlist sidebar will load and display the data for that playlist.
+	- The playlist data could maybe be in JSON, or maybe YAML, I don't know. YAML could make it easy for me to add a list of videos and manage how they appear in the list, then it can somewhat-easily be taken and turned into an RSS feed per playlist. Adding to a playlist would be manual and in a certain order so I need to figure out how to update a playlist RSS feed.
+	- Perhaps in case someone doesn't want to use JS, there can be automatic links to each playlist the video is present in. That may be complicated but would be nice to have. I'll need to have a way to do it with tags, too.
+	
+	
+Channel ideas (would put this in one of the channel pages but it has stuff important to videos):
+
+- Maybe each channel can be defined in a "channels" folder and each video can be defined in a folder that uses an ID of the channel to keep it separate instead of all the videos being in one folder.
+	- Each channel can be defined like so in "`_data`": https://jekyllrb.com/docs/datafiles/#example-accessing-a-specific-author
+	- I can indeed have each channel's videos under "`/channelPath/_posts`" and use "site.categories.channelPath" instead of "site.posts", see: https://stackoverflow.com/a/42196173 under CC BY-SA 3.0 and see: https://jekyllrb.com/docs/variables/ for "post.categories". I will probably have to use "post.tags" instead of "post.categories" for getting tags and having relevant videos show up if that works. Jekyll does support related posts but only up to 10 so I want to allow getting everything that has the same tags and show them as related videos automatically, so all videos tagged "linux" show up. Or maybe I should just "manually" specify related videos with the Jekyll related thing. Playlists can show up in related videos but I don't know how to handle that, maybe I just don't.
+	- Actually, related videos via tags could work but would need to be limited in number. I wonder if that's what the Jekyll "related" thing does.
+	- Videos will have a `video` category, so I will need to use a custom header text property thing to specify which channel owns a video. Perhaps `channel: channelName`? Then there can also be a way to have the author tied to a certain username so stuff can be organized like PeerTube where it shows all of the videos that a specific user uploaded, then if you go to a channel it shows only videos published on that channel.
+	- Or maybe I'll do something like this for categories and channels; linked under CC BY-SA 4.0: https://stackoverflow.com/a/55441406 ; see also here if that link goes down: https://codeberg.org/DrewNaylor/coffeebisquit/issues/2
+	
+Video torrents:
+
+- I want to have torrents for all my videos too, just like on PeerTube. I might just group all the resolutions together to make it easier for me. Each video will be separate, though. I don't know how to do stuff with getting descriptions and titles into a torrent in case I update something. See: https://joshmuller.ca/writings/2023/how-to-turn-a-youtube-channel-into-a-torrent/
+	- It would probably be a good idea to have an RSS feed for the torrents themselves or however the subscribable torrents work. Only problem is that you would just have all of them if you're subscribing to it, unlike PeerTube where you can pick how to replicate them.
+	
+Spoiler warnings:
+
+- Content warnings are obvious: HTML "details" tag.
+	- Likely the page title will need to be the content warning to avoid spoiling what the video's about if it has spoilers for something. Then the video title can be different, so there can be a Jekyll thing at the top of the file that says "containsSpoilers: true" and another tag that says "realTitle: (whatever)".
+	- The real title will be used on the video page if the content warning is expanded.
+	- Actually what I did for now is just keep the regular title since it would be confusing at the moment to have "realTitle" in addition to "title" and stuff. The page itself has the video and everything inside a details block. Doing stuff with thumbnails would be more complicated right now.
+
+Video and non-video post comments and federation:
+
+- I can use GoToSocial for comments and federation since it's a lot simpler to manage. Hope I can figure it out to integrate federated comments. This post reminded me I could do this: https://gamedev.lgbt/@bram/114166832402474498
+	-  Maybe I can have a thing where, when loading comments, we look through all the public posts from my profile on my GoToSocial instance that has a tag like "CoffeebisquitInstanceCommentThread" and look for the one that has the link to the video in its post text. We would filter by account to only mine and only public posts. Probably should only get public replies too, in case anyone didn't want unlisted ones to be shown.
+		- I don't know how to make this less noisy and like spam. I also want it to be more like PeerTube where the account can include the title of the video but then ensure the text on the post updates when the page is edited.
+		- I also want to have a thing like this for my blog comments but having multiple accounts on GoToSocial or two instances would be a lot. Maybe I can use a different tag for my blog comments and have the tag be definable in the configuration for the script that handles GoToSocial posting.
+		- Maybe I could even not use a tag? That could help. Maybe not though in case I link to the video in the comments of another one. Let's keep the tag and have a thing that says that's how the system works as it's the best I could think of.
+		- I do need to have it so it's rate-limited.
+		- The API to read posts needs a bearer token, and I don't want it to be public so maybe I can have a basic web application that only accepts requests from the server itself and gets the JSON from the GoToSocial instance and returns it to the website directly. See here for some stuff but not everything: https://stackoverflow.com/questions/22413921/how-to-make-http-authentication-in-rest-api-call-from-javascript
+		- I might be able to use QtHTTPServer for the backend REST server to communicate directly with the GoToSocial instance to not expose the bearer token; Qt says it's not particularly been tested for security but since I'm only using "get" for stuff, hopefully it'll work; I'll need to be able to do a SystemD service to run it as a daemon and limit its access so it can't write anywhere but to log files and can read its config file in "/etc/(whatever I decide)": https://doc.qt.io/qt-6/qthttpserver-index.html
+			- Actually, I'll use the Go stuff from here: https://www.digitalocean.com/community/tutorials/how-to-make-an-http-server-in-go
+			- I can also use the REST server to serve links to videos in the player to put them behind a rate limit. Not sure how to allow the videos without JS, but if Nginx allows rate limits, that would work fine. Actually, Nginx can do this: https://blog.nginx.org/blog/rate-limiting-nginx
+		- Also I want to show the likes on the video based on the likes on the post linked for comments. When GoToSocial adds emoji reactions (if they do), I want to add that, too. Showing boost count would be good, too. Clicking these would open a thing that lets you boost or like from your server, just like the comment section has a thing to go to the post on your server to comment (a blog that talks about this somewhere has this so I want to do the same thing but I need to say it's inspired by that blog post).
+		- If the video/blog post has a thing where it specifies the post to get for comments, don't search for it to save time. Searching will be needed for new posts before I rebuild the site and put the ID in there (actually I might just drop the searching thing, it would be annoying I think).
+	- I can also use this method for post comments, but it'll still be GoToSocial instead of Mastodon, and I'll host the JS myself instead of using Cloudflare for it: https://danielpecos.com/2022/12/25/mastodon-as-comment-system-for-your-static-blog/
+
+	
+Video search ideas:
+
+-  Search: https://github.com/amitmerchant1990/reverie/blob/master/_pages/search.md?plain=1
+	- This has search queries but the repo doesn't have a license so I can't use it I don't think, hope it's available somewhere else by the same user: https://github.com/Kolossi/kolossi.github.io/blob/main/_pages/search.md?plain=1
+	- The search page should have an option to use SepiaSearch instead of searching on my website in case someone wants to search PeerTube videos. Of course, I could also have a thing to scrape SepiaSearch results so it will show up inline like on PeerTube, but that's more work and probably not very ethical. I'll have a note that says that my stuff won't show up on SepiaSearch because it's not a PeerTube instance. Choosing between the two will be a radio button, with the default being to search my website.
+	
+Bandwidth throttling:
+
+-  I'll need to ensure that bandwidth is limited to not overload the server. I think maybe allow 50 Mbps at most for torrent seeding, then allow a limit of 5-10 Mbps for video streaming per IP per connection. Ideally this should be able to scale somehow and also max out at 390 Mbps including the torrent seeding bandwidth so the server can be connected to.
+	- I'll need to throttle downloads too as described here: https://github.com/Chocobozzz/PeerTube/commit/f9587f9e3729951ccb0b38a7fef61f2f7dc85278 and here: https://github.com/Chocobozzz/PeerTube/issues/7555
+
+Channel recommendations:
+
+- There should be a links page with recommendations of what channels to check out, whether PeerTube instances, other coffeebisquit instances, or Hyper 8 instances.
+
+Showing recent posts from my GoToSocial account directly on my account page:
+
+- I want to have a page on my account page (not to be confused with channels; I'm going to have one GoToSocial account for comments on both channels to make things simple for me unless I can manage having two bot accounts like PeerTube; I wonder how reasonable it would be to have only the channel it's published to boost it so it works like PeerTube in that way, too) where there's a list of my recent posts and boosts from the GoToSocial server like YouTube's old Discussion page. This will need JS to load it at runtime. I might have it paginate so it doesn't load a ton at once.
+
+Multiple resolutions and captions:
+
+- Multiple resolutions can still work with static video players, so I'll have it be where each resolution will be in a "details" element if no JS is allowed to run with a note that says that since there's no JavaScript running, each resolution is displayed on the page separately and switching between them requires manual pausing and going to where you were in the other resolutions.
+	-  Actually, maybe non-JS multi-resolution can be handled by a list of links or maybe the dropdown will still work and it'll use a "?resolution=720p" or whatever that goes to the Go backend and somehow the player changes the file to that version. I don't know how that would work. Player position wouldn't work right without JS, I don't think. Easiest would be to have JS for resolution changes and default to 480p with no JS to save data if I can't get the Go stuff working for that.
+- If JS is enabled, we'll have a dropdown outside the player that will allow the viewer to choose their resolution before playing it. Upon changing the resolution, we will ensure the video goes back to the original place that the viewer was just at. I don't know how to do automatic resolution changing but that would be harder to do without HLS like PeerTube, then downloads would need ffmpeg to put the video and audio together.
+- Audio can be its own resolution option, maybe both Ogg Vorbis and MP3 since I want an open format and support for IE (IE doesn't support Ogg Vorbis and really old Firefox versions don't support MP3 on every system).
+- Captions can be handled without JS but I don't know how to toggle them. Using a "track" element for WebVTT requires "text/vtt" as the type on Windows 8 and the type needs to be added to htaccess, see: https://mark-sweeney.com/?p=1024 . Maybe I can have dropdowns for captioned and uncaptioned videos if no JS is used.
+- "details" element isn't supported by Firefox older than 49 and IE doesn't support it at all: https://caniuse.com/details
+
+Podcast compatibility:
+
+- I want to have MP3 and Ogg Vorbis files available in an RSS feed like a podcast if someone wants to have my stuff in a podcast format. Maybe two RSS feeds for my channel and each playlist: "All videos feed" and "Audio-only feed" unless there's a way to say that a certain path should be used by podcast things.
+
+View analytics:
+
+- Viewer analytics can be done by hashing the time to the millisecond when a video is started, browser, browser version, and the IP address of the viewer and salting it and sending that to a database that won't count extra views until at least a few hours after the video is last progressed for a certain hash. If it's paused and resumed in that time, we will still count that as one view. After those hours pass, we delete the hash and if it shows up again, we treat it as a new view. However, reloading the page would get a new view, so maybe I can't do time when the video is started, maybe it needs browser, browser version, IP address, and viewport maximum size. All of this will be encrypted and salted, so I won't know anyway. The user will also be asked if they wish to give consent to this viewer analytic thing, and if they do, set a cookie that says "consentToViewAnalytics" that will expire in a few months.
+		- Actually, we should use the time (to the millisecond) when the user gives consent to store and send view cookie stuff to have a way to have a unique-enough identifier when paired with IP address and browser version and all that.
+	- It would be cool to also have a thing where I can see the browser that each view uses like PeerTube, so there will be another cookie that just allows consenting to sending the name of the browser to a database once a view is counted.
+	- There needs to be a page on the website where users can revoke consent for sending their view and browser name. Unfortunately, because I don't know who has viewed the video, I can't delete the individual views easily as a programmatic thing, and the browser one would be difficult to do, also. While I could allow deleting a view counter and the hash and everything that a hash used if the hash hasn't been deleted yet, that could lead to abuse and I just realized that hashing per video ID might be necessary since one viewer might watch multiple videos, and I would need to send the video ID along with the hash that has everything to know what video to increment the watch count of.
+	- I could maybe also track watch time with this to see how many minutes and hours each video gets. That would need its own consent button.
+	- In the dialog requesting consent, I need to show what will be collected for each option and how it will be sent (the result of hashing and salting).
+	- I wonder if it would be too privacy-invasive to allow everyone to view the used browsers. Should probably limit that to my IP address or have a program I can run on the server to show the data, or just a program that pulls the database over SSH and reads it. Having proper accounts would make that easier.
+	- Views should federate like PeerTube, too, so that everyone can know how many views a video has within a federation (if federation is turned on); this would require a lot more work than a semi-static site.
+	- The consent thing should be a thing that has buttons to allow specific features on a granular scale like "count view", "count watch time", "record browser name", etc., with the default being off. The banner will be a thing asking if the viewer wants to enable stuff like that and if they want to, they have to open a thing and turn them on, have a button to auto turn them all on (the banner will say what gets enabled), and a button to keep them off. If they never choose anything, then no views get counted or anything and there will be a thing telling them that won't happen if they want to contribute to the view counter.
+	
+WebRTC, HTTP Range Requests, and HLS:
+
+- Perhaps I can use Pion's WebRTC stuff to distribute viewing if a video becomes really popular: https://github.com/pion/webrtc
+- Pion's list of cool stuff: https://github.com/pion/awesome-pion
+- Where I learned about Pion: https://memo.d.foundation/golang/golang-for-high-performance-video-streaming
+- I could also apparently use HTTP Range Requests for video streaming if I have stuff go through Go: https://malnossi.github.io/blog/streaming-videos-with-golang/
+- This uses HLS like PeerTube, wonder how HLS and WebRTC could be used together: https://medium.com/@sriniwasx/build-a-video-streaming-server-with-golang-using-hls-db0eb24a1e37
+- There's a Go HLS library: https://github.com/bluenviron/gohlslib
+	-  That's for MediaMTX, which is a livestream server in Go that I could probably at least base stuff off for a starting point of a PeerTube alternative: https://github.com/bluenviron/mediamtx
+	- Unfortunately, MediaMTX uses hls.js which might be slop due to some slopmachine previously committing to it.
+- One or more of these could work with static HTML and JS on the front-end to retrieve the intended video and send it to the Go backend while still working without Go I think. If I wanted to do private videos, I would have to use Go as a backend server to enforce permissions and I would need accounts.
+-->
+      </div>
+    </main><footer class="site-footer h-card" id="site-footer">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">coffeebisquit example website</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">coffeebisquit example website</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list">
+  <!-- NOTE: I had to add "title" elements to each of these as described here
+             because otherwise there would be no alt text on the images:
+             https://github.com/jekyll/minima/issues/502 --><li><a href="https://mastodon.online/@DrewNaylor"><svg class="svg-icon"><title>Mastodon logo</title><use xlink:href="/assets/minima-social-icons.svg#mastodon"></use></svg> <span class="username">DrewNaylor</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is an example website for coffeebisquit.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
