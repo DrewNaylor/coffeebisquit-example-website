@@ -22,8 +22,10 @@ title: coffeebisquit example website
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is an example website for coffeebisquit.
-baseurl: "" # the subpath of your site, e.g. /blog TODO/FIXME: support the baseurl and url properties correctly; coffeebisquit currently doesn't work right with them.
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog TODO/FIXME: support the baseurl property correctly; coffeebisquit currently doesn't work right with it.
+url: "https://coffeebisquit-example.drew-naylor.com" # the base hostname & protocol for your site, e.g. http://example.com
+# Example command for building that will use the "url" property correctly:
+# bundle exec jekyll build --destination ../docs
 mastodon:
   - username: DrewNaylor
     instance: mastodon.online

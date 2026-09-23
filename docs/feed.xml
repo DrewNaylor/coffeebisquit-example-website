@@ -4,8 +4,8 @@
     <channel>
         <title>coffeebisquit example website</title>
         <description>This is an example website for coffeebisquit.</description>
-        <link>http://localhost:4000</link>
-        <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+        <link>https://coffeebisquit-example.drew-naylor.com</link>
+        <atom:link href="https://coffeebisquit-example.drew-naylor.com/feed.xml" rel="self" type="application/rss+xml" />
         
             <!-- Only get non-unlisted videos. Unfortunately there's no easy way to do private videos with Jekyll. -->
             
@@ -52,15 +52,15 @@
                 Actually this requires CDATA stuff.
                 
                 <media:content xmlns:media="http://search.yahoo.com/mrss/"
-                url="http://localhost:4000/storage/thumbnails/big-buck-bunny-thumbnail.png"
+                url="https://coffeebisquit-example.drew-naylor.com/storage/thumbnails/big-buck-bunny-thumbnail.png"
                 medium="image"
                 type="image/jpeg"
                 width="250"
                 height="250" />
                 -->
                 <pubDate>Sat, 05 Sep 2026 02:25:54 -0400</pubDate>
-                <link>http://localhost:4000/video/2026/09/05/big-buck-bunny-hls-test.html</link>
-                <guid isPermaLink="true">http://localhost:4000/video/2026/09/05/big-buck-bunny-hls-test.html</guid>
+                <link>https://coffeebisquit-example.drew-naylor.com/video/2026/09/05/big-buck-bunny-hls-test.html</link>
+                <guid isPermaLink="true">https://coffeebisquit-example.drew-naylor.com/video/2026/09/05/big-buck-bunny-hls-test.html</guid>
             </item>
             
         
@@ -101,15 +101,15 @@ have to download and modify each video&apos;s subtitle files to point to a local
                 Actually this requires CDATA stuff.
                 
                 <media:content xmlns:media="http://search.yahoo.com/mrss/"
-                url="http://localhost:4000/storage/thumbnails/dspellcheck-thumbnail.png"
+                url="https://coffeebisquit-example.drew-naylor.com/storage/thumbnails/dspellcheck-thumbnail.png"
                 medium="image"
                 type="image/jpeg"
                 width="250"
                 height="250" />
                 -->
                 <pubDate>Sat, 04 Jul 2026 10:30:54 -0400</pubDate>
-                <link>http://localhost:4000/video/2026/07/04/configuring-dspellcheck.html</link>
-                <guid isPermaLink="true">http://localhost:4000/video/2026/07/04/configuring-dspellcheck.html</guid>
+                <link>https://coffeebisquit-example.drew-naylor.com/video/2026/07/04/configuring-dspellcheck.html</link>
+                <guid isPermaLink="true">https://coffeebisquit-example.drew-naylor.com/video/2026/07/04/configuring-dspellcheck.html</guid>
             </item>
             
         
@@ -148,15 +148,15 @@ have to download and modify each video&apos;s subtitle files to point to a local
                 Actually this requires CDATA stuff.
                 
                 <media:content xmlns:media="http://search.yahoo.com/mrss/"
-                url="http://localhost:4000/storage/thumbnails/big-buck-bunny-thumbnail.png"
+                url="https://coffeebisquit-example.drew-naylor.com/storage/thumbnails/big-buck-bunny-thumbnail.png"
                 medium="image"
                 type="image/jpeg"
                 width="250"
                 height="250" />
                 -->
                 <pubDate>Tue, 23 Jun 2026 04:11:54 -0400</pubDate>
-                <link>http://localhost:4000/video/2026/06/23/big-buck-bunny-newer-test.html</link>
-                <guid isPermaLink="true">http://localhost:4000/video/2026/06/23/big-buck-bunny-newer-test.html</guid>
+                <link>https://coffeebisquit-example.drew-naylor.com/video/2026/06/23/big-buck-bunny-newer-test.html</link>
+                <guid isPermaLink="true">https://coffeebisquit-example.drew-naylor.com/video/2026/06/23/big-buck-bunny-newer-test.html</guid>
             </item>
             
         
@@ -203,15 +203,15 @@ have to download and modify each video&apos;s subtitle files to point to a local
                 Actually this requires CDATA stuff.
                 
                 <media:content xmlns:media="http://search.yahoo.com/mrss/"
-                url="http://localhost:4000/storage/thumbnails/big-buck-bunny-thumbnail.png"
+                url="https://coffeebisquit-example.drew-naylor.com/storage/thumbnails/big-buck-bunny-thumbnail.png"
                 medium="image"
                 type="image/jpeg"
                 width="250"
                 height="250" />
                 -->
                 <pubDate>Sat, 13 Jun 2026 05:10:54 -0400</pubDate>
-                <link>http://localhost:4000/video/2026/06/13/big-buck-bunny-test.html</link>
-                <guid isPermaLink="true">http://localhost:4000/video/2026/06/13/big-buck-bunny-test.html</guid>
+                <link>https://coffeebisquit-example.drew-naylor.com/video/2026/06/13/big-buck-bunny-test.html</link>
+                <guid isPermaLink="true">https://coffeebisquit-example.drew-naylor.com/video/2026/06/13/big-buck-bunny-test.html</guid>
             </item>
             
         
