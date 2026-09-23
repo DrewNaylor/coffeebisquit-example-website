@@ -22,7 +22,7 @@ title: coffeebisquit example website
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is an example website for coffeebisquit.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog TODO/FIXME: support the baseurl and url properties correctly; coffeebisquit currently doesn't work right with them.
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 mastodon:
   - username: DrewNaylor
@@ -30,6 +30,7 @@ mastodon:
 
 # We have to say if comments are enabled on this website
 # so that they can be turned on and off site-wide.
+# Comments on the example website are turned off since I have no GTS instance for it yet.
 comments-enabled: false
 
 # gts-conduit is used to get comments from a GoToSocial instance.
