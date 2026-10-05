@@ -3,4 +3,5 @@ layout: channel-about-tab
 username-id: drewnaylor
 ---
 
-About text will go here, below the channel nav links.
+You can put anything else you want for the channel description here in "about.md". Links will work automatically:<br>
+https://drew-naylor.com

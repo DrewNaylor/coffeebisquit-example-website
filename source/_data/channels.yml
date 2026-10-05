@@ -6,7 +6,9 @@ drewnaylor:
     banner-alt-text: "My beautiful long-hair calico cat Mitty laying down in the clean clothes pile with her eyes wide open looking toward the camera but off to the left side. I added a blur effect behind the image so it looks cooler."
     avatar-filename: "drewnaylor.jpg"
     banner-filename: "drewnaylor.png"
-    description: "About text will go here, below the channel nav links."
+    description: "Channel description goes here.<br>
+    Note that if you have links, they will unfortunately have to be defined manually like so because I have channel descriptions in the channels.yml file for easy social media preview compatibility:
+    <br><a href=\"https://drew-naylor.com\">https://drew-naylor.com</a>"
     enabled-channel-tabs:
       - Videos
       - Playlists
